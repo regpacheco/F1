@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formula One Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HERO -->
+
+<header class="hero">
+
+    <div class="overlay">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg"
+            class="logo"
+            alt="Formula 1 Logo"
+        >
+
+    </div>
+
+</header>
+
+    <!-- MAIN KPI CARDS -->
+
+    <section class="stats">
+
+        <div class="card">
+            <h2>Total Drivers</h2>
+            <p>857+</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Circuits</h2>
+            <p>77+</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Races</h2>
+            <p>1000+</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Seasons</h2>
+            <p>70+</p>
+        </div>
+
+    </section>
+
+    <!-- DASHBOARD MENU -->
+
+    <nav class="menu-dashboard">
+
+        <button onclick="mostrarSeccion('dashboard')">
+            Executive Dashboard
+        </button>
+
+        <button onclick="mostrarSeccion('drivers')">
+            Driver Analytics
+        </button>
+
+        <button onclick="mostrarSeccion('constructors')">
+            Constructors
+        </button>
+
+        <button onclick="mostrarSeccion('circuits')">
+            Circuit Intelligence
+        </button>
+
+        <button onclick="mostrarSeccion('rankings')">
+            Rankings
+        </button>
+
+        <button onclick="mostrarSeccion('comparator')">
+            Driver Comparator
+        </button>
+
+        <button onclick="mostrarSeccion('database')">
+            Historical Database
+        </button>
+
+        <button onclick="mostrarSeccion('insights')">
+            Performance Insights
+        </button>
+
+        <button onclick="mostrarSeccion('predictive')">
+            Statistic Models
+        </button>
+
+    </nav>
+
+    <!-- GLOBAL DRIVER SELECT -->
+
+    <section class="global-driver-box">
+
+        <label for="driverSelect">
+            Select Driver
+        </label>
+
+        <select id="driverSelect" onchange="actualizarDashboardPiloto()">
+            <option value="">Loading drivers...</option>
+        </select>
+
+    </section>
+
+    <!-- EXECUTIVE DASHBOARD -->
+
+    <section id="dashboard" class="seccion">
+
+        <h2>Executive Dashboard</h2>
+
+        <p class="descripcion-seccion">
+            Centralized Formula One intelligence platform integrating historical,
+            statistical and performance data.
+        </p>
+
+        <div class="mini-kpis">
+
+            <div class="mini-card">
+                <h3>Career Wins</h3>
+                <p id="kpiWins">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>Career Podiums</h3>
+                <p id="kpiPodiums">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>Total Points</h3>
+                <p id="kpiPoints">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>Average Points</h3>
+                <p id="kpiAverage">0</p>
+            </div>
+
+        </div>
+
+        <div class="executive-grid">
+
+            <div class="analysis-card">
+                <h3>Analytical Approach</h3>
+                <p>
+                    The dashboard evaluates performance through wins, podiums,
+                    points, race participation, consistency and risk indicators.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DRIVER ANALYTICS -->
+
+    <section id="drivers" class="seccion">
+
+        <h2>Driver Analytics Center</h2>
+
+        <p class="descripcion-seccion">
+            Historical performance evaluation for the selected Formula One driver.
+        </p>
+
+        <div class="mini-kpis">
+
+            <div class="mini-card">
+                <h3>Career Wins</h3>
+                <p id="driverWins">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>Career Podiums</h3>
+                <p id="driverPodiums">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>Total Races</h3>
+                <p id="driverRaces">0</p>
+            </div>
+
+            <div class="mini-card">
+                <h3>DNF Count</h3>
+                <p id="driverDNF">0</p>
+            </div>
+
+        </div>
+
+        <div class="chart-grid">
+
+            <div class="chart-card">
+                <h3>Wins Per Season</h3>
+                <canvas id="graficaVictorias"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Points Evolution</h3>
+                <canvas id="graficaPuntos"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Podium Distribution</h3>
+                <canvas id="graficaPodios"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONSTRUCTORS ANALYTICS -->
+
+<section id="constructors" class="seccion">
+
+    <h2>Constructors Analytics</h2>
+
+    <p class="descripcion-seccion">
+        Performance evaluation of Formula One teams throughout historical seasons.
+    </p>
+
+    <div class="analysis-grid">
+
+        <div class="analysis-card">
+            <h3>Constructor Performance</h3>
+            <p>
+                This section evaluates historical team performance using wins,
+                podiums, points and race participation.
+            </p>
+        </div>
+
+        <div class="analysis-card">
+            <h3>Team Development</h3>
+            <p>
+                Constructor records help identify long-term dominance,
+                competitive cycles and changes in team performance across seasons.
+            </p>
+        </div>
+
+        <div class="analysis-card">
+            <h3>Strategic Value</h3>
+            <p>
+                Team-level analysis provides context for driver performance,
+                car reliability and championship competitiveness.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="controls constructor-controls">
+
+    <label for="constructorSelect">
+        Select Constructor
+    </label>
+
+    <select id="constructorSelect" onchange="cambiarConstructorRadar()">
+        <option value="">Loading constructors...</option>
+    </select>
+
+</div>
+
+<div class="chart-card constructor-chart-card">
+    <h3 id="constructorRadarTitle">Constructor Performance Profile</h3>
+    <canvas id="graficaConstructores"></canvas>
+</div>
+</section>
+
+    <!-- CIRCUIT INTELLIGENCE -->
+
+    <section id="circuits" class="seccion">
+
+        <h2>Circuit Intelligence</h2>
+
+        <p class="descripcion-seccion">
+            Analysis of Formula One venues, historical race outcomes and performance variation by circuit.
+        </p>
+
+        <div class="analysis-grid">
+
+            <div class="analysis-card">
+                <h3>Most Used Circuits</h3>
+                <p>
+                    Identifies the circuits with the highest number of races
+                    and their importance in Formula One history.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Historical Context</h3>
+                <p>
+                    Evaluates the first and most recent years in which each circuit
+                    appeared in the historical race database.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Location Analysis</h3>
+                <p>
+                    Shows how Formula One activity is distributed across different
+                    countries and circuits.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="analysis-card">
+            <h3>Top Circuits by Number of Races</h3>
+            <div id="circuitIntelligenceContainer"></div>
+        </div>
+
+    </section>
+
+    <!-- RANKINGS -->
+
+    <section id="rankings" class="seccion">
+
+        <h2>F1 Rankings</h2>
+
+        <p class="descripcion-seccion">
+            Ranking tables generated from MySQL results, drivers and constructors data.
+        </p>
+
+        <div class="executive-grid">
+
+            <div class="analysis-card">
+                <h3>Top 10 Drivers</h3>
+                <div id="topDriversContainer"></div>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Top 10 Constructors</h3>
+                <div id="topConstructorsContainer"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DRIVER COMPARATOR -->
+
+    <section id="comparator" class="seccion">
+
+        <h2>Driver Comparator</h2>
+
+        <p class="descripcion-seccion">
+            Compare two Formula One drivers using wins, podiums, points, races and DNF indicators.
+        </p>
+
+        <div class="controls">
+
+            <select id="compareDriver1">
+                <option value="">Loading drivers...</option>
+            </select>
+
+            <select id="compareDriver2">
+                <option value="">Loading drivers...</option>
+            </select>
+
+            <button onclick="compararPilotos()">
+                Compare Drivers
+            </button>
+
+        </div>
+
+        <div class="analysis-card">
+            <h3>Comparison Results</h3>
+            <div id="comparisonContainer">
+                <p>Select two drivers to generate a comparison.</p>
+            </div>
+        </div>
+
+        <div class="chart-card comparator-chart">
+            <h3>Driver Performance Comparison</h3>
+            <canvas id="graficaComparador"></canvas>
+        </div>
+
+    </section>
+
+    <!-- HISTORICAL DATABASE -->
+
+    <section id="database" class="seccion">
+
+        <h2>Historical Database</h2>
+
+        <p class="descripcion-seccion">
+            Direct access to Formula One historical records stored in MySQL.
+        </p>
+
+        <div class="controls">
+
+            <select id="tablas">
+                <option value="">Loading tables...</option>
+            </select>
+
+            <button onclick="cargarTabla()">
+                View Table
+            </button>
+
+            <input
+                type="text"
+                id="buscador"
+                placeholder="Search records..."
+            >
+
+        </div>
+
+        <div id="tabla-container"></div>
+
+    </section>
+
+    <!-- PERFORMANCE INSIGHTS -->
+
+    <section id="insights" class="seccion">
+
+        <h2>Performance Insights</h2>
+
+        <p class="descripcion-seccion">
+            Executive evaluation of the selected driver's competitive profile,
+            consistency and historical performance.
+        </p>
+
+        <div class="executive-grid">
+
+            <div class="analysis-card">
+                <h3>Performance Summary</h3>
+                <p id="summaryText">
+                    Select a driver to generate a professional performance summary
+                    based on historical race results.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Competitive Assessment</h3>
+                <p id="competitiveText">
+                    This section evaluates wins, podium frequency, scoring capacity
+                    and long-term competitive behavior.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Risk Evaluation</h3>
+                <p id="riskText">
+                    Risk is evaluated through retirements, low-scoring seasons,
+                    variability and performance stability.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Win Rate</h3>
+                <p id="driverWinRate">
+                    Select a driver to calculate win rate.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Podium Rate</h3>
+                <p id="driverPodiumRate">
+                    Select a driver to calculate podium rate.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Consistency Index</h3>
+                <p id="driverConsistency">
+                    Select a driver to calculate consistency.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+<!-- PREDICTIVE MODELS -->
+
+<section id="predictive" class="seccion">
+
+    <h2>Predictive & Risk Models</h2>
+
+    <p class="descripcion-seccion">
+        Actuarial indicators and predictive models based on historical Formula One performance.
+    </p>
+
+    <div class="chart-grid">
+
+        <div class="chart-card">
+            <h3>Risk of Abandonment (DNF Risk)</h3>
+            <canvas id="graficaRiesgoAbandono"></canvas>
+
+            <div class="risk-description">
+                <p>
+                    Historical probability of not finishing a race.
+                    Based on the proportion of DNFs over total races.
+                </p>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Performance Behavior Model</h3>
+            <canvas id="graficaModeloPredictivo"></canvas>
+
+            <div class="risk-description">
+                <p>
+                    Behavior model based on historical performance across key dimensions.
+                    Values range from 0 to 100.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mini-kpis predictive-kpis">
+
+        <div class="mini-card">
+            <h3>DNF Risk</h3>
+            <p id="riskDNF">0%</p>
+        </div>
+
+        <div class="mini-card">
+            <h3>Expected Points</h3>
+            <p id="expectedPoints">0</p>
+        </div>
+
+        <div class="mini-card">
+            <h3>Podium Probability</h3>
+            <p id="podiumProbability">0%</p>
+        </div>
+
+        <div class="mini-card">
+            <h3>Finish Rate</h3>
+            <p id="finishRate">0%</p>
+        </div>
+
+        <div class="mini-card">
+            <h3>Risk Level</h3>
+            <p id="riskLevel">Low</p>
+        </div>
+
+    </div>
+
+    <div class="executive-grid model-description">
+
+        <div class="analysis-card">
+            <h3>Actuarial Interpretation</h3>
+            <p>
+                The abandonment risk estimates the probability of a driver not finishing
+                a race based on historical non-finish results.
+            </p>
+        </div>
+
+        <div class="analysis-card">
+            <h3>Expected Value</h3>
+            <p>
+                Expected points represent the average scoring capacity of the selected
+                driver according to historical performance.
+            </p>
+        </div>
+
+        <div class="analysis-card">
+            <h3>Decision Support</h3>
+            <p>
+                These models evaluate uncertainty, risk exposure and projected performance
+                using a quantitative actuarial approach.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- MAIN APP -->
+
+    <script src="app.js"></script>
+    <div class="chatbot-container">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+
+    <div class="chatbot-box" id="chatbotBox">
+        <div class="chatbot-header">
+            <h3>F1 Assistant</h3>
+            <span onclick="toggleChatbot()">×</span>
+        </div>
+
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="bot-message">
+                Hi! I can help you understand drivers, constructors, circuits and analytics.
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask something..." onkeydown="handleChatKey(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

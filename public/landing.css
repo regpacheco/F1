@@ -1,0 +1,164 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Orbitron', sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.85)),
+        url('https://images.pexels.com/photos/12795/pexels-photo-12795.jpeg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero{
+    text-align:center;
+    color:white;
+    padding:40px;
+}
+
+.f1-logo{
+    width:190px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:4.8rem;
+    letter-spacing:8px;
+    margin-bottom:18px;
+    text-shadow:0 0 25px rgba(0,0,0,.9);
+}
+
+.hero p{
+    font-size:1.1rem;
+    letter-spacing:2px;
+    color:#e5e5e5;
+    margin-bottom:45px;
+}
+
+#enterBtn{
+    padding:18px 55px;
+    border:none;
+    border-radius:50px;
+    background:#E10600;
+    color:white;
+    font-family:'Orbitron', sans-serif;
+    font-size:1rem;
+    font-weight:800;
+    letter-spacing:3px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+#enterBtn:hover{
+    background:white;
+    color:#E10600;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.7rem;
+    }
+
+    .hero p{
+        font-size:.9rem;
+    }
+}
+.transition-out{
+    animation:fadeZoom 1.2s ease forwards;
+}
+
+.transition-out .hero{
+    animation:heroMove 1.2s ease forwards;
+}
+
+@keyframes fadeZoom{
+
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+    }
+}
+
+@keyframes heroMove{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(.95);
+    }
+}
+.lights-screen{
+    position:fixed;
+    inset:0;
+    background:black;
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.lights-screen.active{
+    display:flex;
+}
+
+.lights-container{
+    text-align:center;
+}
+
+.light{
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:#2a2a2a;
+
+    display:inline-block;
+
+    margin:15px;
+
+    transition:.3s;
+}
+
+.light.on{
+    background:#E10600;
+
+    box-shadow:0 0 30px rgba(225,6,0,.9);
+}
+
+
+@media(max-width:768px){
+
+    .light{
+        width:35px;
+        height:35px;
+        margin:8px;
+    }
+
+    .lights-text{
+        font-size:1rem;
+    }
+
+}
+.light.off{
+    opacity:0;
+    transform:scale(.6);
+    transition:all .6s ease;
+}
